@@ -1,0 +1,2 @@
+class MeleeWeapon < ApplicationRecord
+end
