@@ -11,6 +11,7 @@ parsed.each do |weapon|
   case weapon['type'].downcase
   when 'rifle'
     puts "this is a rifle named #{weapon['name']}"
+    # Don't run this file. The following line crashes.
     PrimaryWeapon.new(name: weapon['name'])
   end
 end
