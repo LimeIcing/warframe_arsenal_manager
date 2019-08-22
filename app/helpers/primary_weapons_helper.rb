@@ -1,0 +1,2 @@
+module PrimaryWeaponsHelper
+end

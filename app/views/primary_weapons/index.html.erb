@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+  </head>
+  <body>
+    <h1>Primary Weapons</h1>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Mastery</th>
+        <th>Type</th>
+        <th>Trigger Type</th>
+        <th>Ammo</th>
+        <th>Noise</th>
+        <th>Projectile Speed</th>
+        <th>Fire Rate</th>
+        <th>Accuracy</th>
+        <th>Magazine Size</th>
+        <th>Max Ammo</th>
+        <th>Reload Time</th>
+        <th>Impact</th>
+        <th>Puncture</th>
+        <th>Slash</th>
+        <th>Crit Chance</th>
+        <th>Crit Multiplier</th>
+        <th>Status Chance</th>
+      </tr>
+
+      <% @primary_weapons.each do |weapon| %>
+
+      <tr>
+        <td><%= weapon.name %></td>
+        <td><%= weapon.mastery %></td>
+        <td><%= weapon.weapon_type %></td>
+        <td><%= weapon.trigger_type %></td>
+        <td><%= weapon.ammo_type %></td>
+        <td><%= weapon.is_alarming ? 'Alarming' : 'Silent' %></td>
+        <td><%= weapon.projectile_speed > 0 ? weapon.projectile_speed : 'N/A' %> m/s</td>
+        <td><%= weapon.fire_rate %> rounds/s</td>
+        <td><%= weapon.accuracy %></td>
+        <td><%= weapon.mag_size %></td>
+        <td><%= weapon.max_ammo %></td>
+        <td><%= weapon.reload_time %></td>
+        <td><%= weapon.impact_damage %></td>
+        <td><%= weapon.puncture_damage %></td>
+        <td><%= weapon.slash_damage %></td>
+        <td><%= weapon.crit_chance * 100 %>%</td>
+        <td>x<%= weapon.crit_multiplier %></td>
+        <td><%= weapon.status_chance * 100 %>%</td>
+      </tr>
+
+      <% end %>
+
+    </table>
+  </body>
+</html>
