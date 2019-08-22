@@ -58,3 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Used to fetch data from API
 gem 'httparty'
+
+# Gems for Bootstrap. Makes CSS nice and easy
+gem 'bootstrap', '~> 4.3.1'
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'jquery-rails'

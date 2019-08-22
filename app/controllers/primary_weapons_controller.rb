@@ -3,6 +3,10 @@ class PrimaryWeaponsController < ApplicationController
   require 'json'
 
   def index
+    @primary_weapons = PrimaryWeapon.all
+  end
+
+  def fetch
     response = HTTParty.get('https://api.warframestat.us/weapons')
 
     puts response.code
@@ -45,7 +49,7 @@ class PrimaryWeaponsController < ApplicationController
       end
     end
 
-    @primary_weapons = PrimaryWeapon.all
+    redirect_to(action: index)
   end
 
 end
