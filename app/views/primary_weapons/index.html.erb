@@ -2,13 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+
     <h1>Primary Weapons</h1>
 
-    <table class="table">
-      <tr>
+    <%= link_to '<div class="btn btn-primary">Refresh data from API</div>'.html_safe, action: 'fetch' %>
+
+    <table class="table table-hover" >
+      <tr class="active">
         <th>Name</th>
         <th>Mastery</th>
         <th>Type</th>
@@ -38,18 +41,18 @@
         <td><%= weapon.trigger_type %></td>
         <td><%= weapon.ammo_type %></td>
         <td><%= weapon.is_alarming ? 'Alarming' : 'Silent' %></td>
-        <td><%= weapon.projectile_speed > 0 ? "#{weapon.projectile_speed} m/s" : 'N/A' %></td>
-        <td><%= weapon.fire_rate %> rounds/s</td>
-        <td><%= weapon.accuracy %></td>
+        <td><%= weapon.projectile_speed > 0 ? "#{weapon.projectile_speed.round(2)} m/s" : 'N/A' %></td>
+        <td><%= weapon.fire_rate.round(2) %> rounds/s</td>
+        <td><%= weapon.accuracy.round(2) %></td>
         <td><%= weapon.mag_size %></td>
         <td><%= weapon.max_ammo %></td>
-        <td><%= weapon.reload_time %></td>
-        <td><%= weapon.impact_damage %></td>
-        <td><%= weapon.puncture_damage %></td>
-        <td><%= weapon.slash_damage %></td>
-        <td><%= weapon.crit_chance * 100 %>%</td>
-        <td>x<%= weapon.crit_multiplier %></td>
-        <td><%= weapon.status_chance * 100 %>%</td>
+        <td><%= weapon.reload_time.round(2) %></td>
+        <td><%= weapon.impact_damage.nil? ? '' : weapon.impact_damage.round(2) %></td>
+        <td><%= weapon.puncture_damage.nil? ? '' : weapon.puncture_damage.round(2) %></td>
+        <td><%= weapon.slash_damage.nil? ? '' : weapon.slash_damage.round(2) %></td>
+        <td><%= (weapon.crit_chance * 100).round(2) %>%</td>
+        <td>x<%= weapon.crit_multiplier.round(2) %></td>
+        <td><%= (weapon.status_chance * 100).round(2) %>%</td>
       </tr>
 
       <% end %>

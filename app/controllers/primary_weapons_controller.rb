@@ -3,7 +3,7 @@ class PrimaryWeaponsController < ApplicationController
   require 'json'
 
   def index
-    @primary_weapons = PrimaryWeapon.all
+    @primary_weapons = PrimaryWeapon.sorted
   end
 
   def fetch
@@ -34,7 +34,7 @@ class PrimaryWeaponsController < ApplicationController
             reload_time: weapon['reloadTime'],
             impact_damage: weapon['damageTypes']['impact'],
             puncture_damage: weapon['damageTypes']['puncture'],
-            slash_damage: weapon['damageTypes']['puncture'],
+            slash_damage: weapon['damageTypes']['slash'],
             crit_chance: weapon['criticalChance'],
             crit_multiplier: weapon['criticalMultiplier'],
             status_chance: weapon['procChance']
@@ -49,7 +49,11 @@ class PrimaryWeaponsController < ApplicationController
       end
     end
 
-    redirect_to(action: index)
+    redirect_to(action: 'index')
+  end
+
+  def wiki
+    redirect_to('https://warframe.fandom.com/wiki/WARFRAME_Wiki')
   end
 
 end
